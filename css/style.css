@@ -1,0 +1,213 @@
+@font-face {
+  font-family: "Bebas Neue Cyrillic";
+  src: local("Bebas Neue Cyrillic"),
+    url("../fonts/Bebas Neue Cyrillic.woff2") format("woff2"),
+    url("../fonts/Bebas Neue Cyrillic.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: "Roboto", sans-serif;
+}
+.header {
+  background-color: #635854;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border-bottom: 4px solid #3596f5;
+}
+.navbar {
+  max-width: 1280px;
+  margin: auto;
+  display: flex; /*сделали блок гибким*/
+  justify-content: space-between; /*раставили элементы по краям*/
+  align-items: center;
+}
+.navbar-menu {
+  margin: 0; /*отключаем внешние отступы*/
+  padding: 0; /*отключаем внутрнние отступы*/
+  list-style: none; /*отключаем точки у списка*/
+  display: flex;
+  text-align: center;
+}
+.navbar-item {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.navbar-link {
+  text-decoration: none;
+  color: #fff;
+}
+.navbar-contacts {
+  text-align: right; /*по правому краю выраниваем текст*/
+}
+.navbar-text {
+  display: block;
+  color: #fff;
+  margin-bottom: 4px;
+  font-size: 14px;
+  line-height: 16px;
+}
+.navbar-phone {
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+.main {
+  max-width: 1280px;
+  margin: auto;
+  padding-top: 54px;
+  display: flex;
+}
+.main-info {
+  flex-grow: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.home-image path {
+  opacity: 0;
+  cursor: pointer;
+}
+.home-image path:hover {
+  opacity: 1; /*выделяются этажи*/
+}
+path.current-floor {
+  opacity: 1;
+}
+.counter-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.counter-button {
+  cursor: pointer;
+  background-color: #fff;
+  border: none;
+}
+.counter-arrow-down {
+  transform: rotateX(180deg);
+}
+.main-title {
+  margin: 0;
+  font-family: "Bebas Neue Cyrillic", sans-serif;
+  font-weight: normal;
+  font-size: 37px;
+  line-height: 37px;
+  color: #635854;
+}
+.floor-counter {
+  font-family: "Bebas Neue Cyrillic", sans-serif;
+  color: #635854;
+  font-size: 124px;
+  margin-top: 10px;
+}
+.button-primary {
+  background-color: #3596f5;
+  border-radius: 6px;
+  color: #fff;
+  border: none;
+  padding: 16px 36px;
+  cursor: pointer;
+}
+.modal {
+  position: fixed; /*фиксированная позиция, поверх всего сайта*/
+  left: 0; /*прилеиваем к левому краю*/
+  top: 0; /*приклеиваем к верху*/
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8); /*полупрозрачный фоновый чёрный цвет*/
+  display: flex; /*родительский элемент сделан - гибким*/
+  justify-content: center; /*выравниваем по горизонтали*/
+  align-items: center; /*выравниваем по вертикали*/
+  opacity: 0; /*сделали прозрачным*/
+  transform: scale(0); /*сжали в ноль, то есть на сайте его не видно вообще*/
+  transition: opacity 0.2s; /*окно появляется плавно в течении 0.2 секунд*/
+}
+.is-open {
+  opacity: 1;
+  transform: scale(1);
+}
+.modal-dialog {
+  position: relative;
+  max-width: 1000px;
+  min-height: 565px;
+  background-color: #fff;
+  flex-grow: 1;
+  display: flex; /*разделили окно на две части*/
+  opacity: 0;
+  transform: translateY(-10%);
+  transition: transform 0.2s, opacity 0.2s;
+  transition-delay: 0.2s;
+}
+.is-open > .modal-dialog {
+  opacity: 1;
+  transform: translateY(0);
+}
+.modal-image {
+  background-color: #ebebeb;
+  width: 60%;
+  text-align: center; /*весь текст по центру*/
+  padding: 50px;
+}
+.flats path {
+  opacity: 0;
+  cursor: pointer;
+}
+.flats path:hover {
+  opacity: 1;
+}
+.modal-title {
+  font-family: "Bebas Neue Cyrillic", sans-serif;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 24px;
+  margin-top: 0; /*отступ сверху*/
+  margin-bottom: 25px; /*отступ снизу*/
+}
+.modal-info {
+  width: 40%;
+  padding: 50px 46px;
+}
+.flat-list {
+  padding: 0;
+  list-style: none;
+  margin-top: 55px;
+}
+.flat-item {
+  margin-bottom: 10px; /*отсутпы друг от друга в списке*/
+}
+.flat-link {
+  font-size: 16px;
+  list-style: 19px;
+  color: #635854;
+  text-decoration: none;
+}
+.flat-link:hover {
+  color: #3596f5; /*при наведении цвет синий*/
+  text-decoration: underline; /*подчеркивается текст снизу*/
+}
+.modal-alert {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #635854;
+  margin-top: 56px;
+}
+.modal-close-button {
+  position: absolute;
+  right: 27px;
+  top: 38px;
+  cursor: pointer;
+  border: none;
+  background-color: #fff;
+}
